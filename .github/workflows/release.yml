@@ -32,7 +32,7 @@ jobs:
         run: |
           sudo apt-get install x11vnc net-tools freeglut3-dev
           sudo x11vnc -nopw -forever -loop -noxdamage -repeat -create -rfbport 5900 -shared &
-          python -m pip install wheel pipenv
+          sudo python -m pip install wheel pipenv
           sudo pipenv sync --bare
           sudo pipenv run build.py
 
@@ -42,4 +42,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: dist/*
-

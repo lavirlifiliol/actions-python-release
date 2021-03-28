@@ -34,7 +34,7 @@ jobs:
           x11vnc -nopw -forever -loop -noxdamage -repeat -create -rfbport 5900 -shared &
           python -m pip install wheel pipenv
           pipenv sync --bare
-          pipenv run build.py
+          pipenv run python build.py
 
       - name: Upload the artifacts
         uses: softprops/action-gh-release@v1

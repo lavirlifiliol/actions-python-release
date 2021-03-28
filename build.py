@@ -1,4 +1,4 @@
-#!//usr/bin/env python
+#!/usr/bin/env python
 """
 fixes the arcade pyinstaller hook and builds a onefile executable in a cross platform way
 """

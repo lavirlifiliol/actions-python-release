@@ -34,7 +34,8 @@ jobs:
           sudo x11vnc -nopw -forever -loop -noxdamage -repeat -create -rfbport 5900 -shared &
           python -m pip install wheel
           python -m pip install -r requirements.txt
-          python build.py
+          chmod +x build.py
+          sudo ./build.py
 
       - name: Upload the artifacts
         uses: softprops/action-gh-release@v1

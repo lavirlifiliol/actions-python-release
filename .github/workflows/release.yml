@@ -4,9 +4,8 @@ name: Package for windows
 
 # Controls when the action will run. 
 on:
-  push:
-#  release:
-#    types: [created]
+  release:
+    types: [created]
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -37,10 +36,10 @@ jobs:
           python -m pip install -r requirements.txt
           sudo python build.py
 
-#      - name: Upload the artifacts
-#        uses: softprops/action-gh-release@v1
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          files: dist/*
+      - name: Upload the artifacts
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: dist/*
 

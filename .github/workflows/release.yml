@@ -27,7 +27,10 @@ jobs:
           python-version: 3.9
 
       - name: Run build.py
-        run: python build.py
+        run: |
+          pythom -m pip install pipenv
+          pipenv sync --bare
+          python build.py
 
       - name: Run a multi-line script
         run: tree /f

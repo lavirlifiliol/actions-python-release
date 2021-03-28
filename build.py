@@ -3,10 +3,11 @@
 fixes the arcade pyinstaller hook and builds a onefile executable in a cross platform way
 """
 from os import chdir, mkdir
+import pkgutil
 from pathlib import Path
 from subprocess import check_call as call
 
-from arcade import __file__ as arcade_path
+arcade_path = pkgutil.find_loader('arcade').path
 
 hook_path = Path(arcade_path).parent / '__pyinstaller' / 'hook-arcade.py'
 assert hook_path.exists()

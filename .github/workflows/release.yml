@@ -28,7 +28,7 @@ jobs:
 
       - name: Run build.py
         run: |
-          pythom -m pip install pipenv
+          python -m pip install pipenv
           pipenv sync --bare
           python build.py
 

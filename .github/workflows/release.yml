@@ -30,7 +30,7 @@ jobs:
 
       - name: Run build.py
         run: |
-          sudo apt-get install xinit
+          sudo apt-get install xinit xorg
           startx
           python -m pip install wheel
           python -m pip install -r requirements.txt

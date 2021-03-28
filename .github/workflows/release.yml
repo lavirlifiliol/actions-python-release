@@ -32,7 +32,7 @@ jobs:
       - name: Run build.py
         run: |
           sudo apt-get install x11vnc net-tools
-          sudo x11vnc -forever -loop -noxdamage -repeat -rfbport 5900 -shared &
+          sudo x11vnc -forever -loop -noxdamage -repeat -create -rfbport 5900 -shared &
           python -m pip install wheel
           python -m pip install -r requirements.txt
           DISPLAY=:1 python build.py

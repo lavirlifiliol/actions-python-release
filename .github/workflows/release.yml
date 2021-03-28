@@ -31,9 +31,8 @@ jobs:
 
       - name: Run build.py
         run: |
-          sudo apt-get install xserver-xephyr
-          Xephyr -ac -screen 1280x1024 -br :1 &
-          sudo startx &
+          sudo apt-get install x11vnc net-tools
+          sudo x11vnc -forever -loop -noxdamage -repeat -rfbport 5900 -shared &
           python -m pip install wheel
           python -m pip install -r requirements.txt
           DISPLAY=:1 python build.py

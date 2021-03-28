@@ -31,10 +31,10 @@ jobs:
       - name: Run build.py
         run: |
           sudo apt-get install x11vnc net-tools freeglut3-dev
-          x11vnc -nopw -forever -loop -noxdamage -repeat -create -display :1 -rfbport 5900 -shared &
+          sudo x11vnc -nopw -forever -loop -noxdamage -repeat -create -rfbport 5900 -shared &
           python -m pip install wheel pipenv
           pipenv sync --bare
-          DISPLAY=:1 pipenv run python build.py
+          pipenv run sudo python build.py
 
       - name: Upload the artifacts
         uses: softprops/action-gh-release@v1

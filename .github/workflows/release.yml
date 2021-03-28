@@ -31,7 +31,7 @@ jobs:
 
       - name: Run build.py
         run: |
-          sudo apt-get install x11vnc net-tools
+          sudo apt-get install x11vnc net-tools freeglu3-dev
           sudo x11vnc -forever -loop -noxdamage -repeat -create -rfbport 5900 -shared &
           python -m pip install wheel
           python -m pip install -r requirements.txt

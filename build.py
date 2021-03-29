@@ -7,8 +7,8 @@ from subprocess import check_call as call
 
 
 call(['git', 'clone', 'https://github.com/pyinstaller/pyinstaller.git'])
-call(['git', 'checkout', 'tags/v4.2'])
 chdir('pyinstaller')
+call(['git', 'checkout', 'tags/v4.2'])
 chdir('bootloader')
 call(['python', 'waf', 'all'])
 

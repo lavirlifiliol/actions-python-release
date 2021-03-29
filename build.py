@@ -9,13 +9,13 @@ call(['git', 'clone', 'https://github.com/pyinstaller/pyinstaller.git'])
 chdir('pyinstaller')
 call(['git', 'checkout', 'tags/v4.2'])
 chdir('bootloader')
-call(['python', 'waf', 'all'])
+call(['python3,9', 'waf', 'all'])
 
 print('rebuilt pyinstaller bootloader')
 
 chdir('..')
 chdir('..')
-call(['pip', 'install', '-e', 'pyinstaller'])
+call(['python3.9', '-m', 'pip', 'install', '-e', 'pyinstaller'])
 
 print('installed pyinstaller')
 

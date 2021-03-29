@@ -4,7 +4,18 @@ fixes the arcade pyinstaller hook and builds a onefile executable in a cross pla
 """
 from os import chdir
 from subprocess import check_call as call
+import pkgutil
+from pathlib import Path
 
+arcade_path = pkgutil.find_loader('arcade')
+arcade_path = arcade_path.path
+hook_path = Path(arcade_path).parent / '__pyinstaller' / 'hook-arcade.py'
+assert hook_path.exists()
+# the arcade hook is incorrectly setup to include chipmunk.dll/.so which doesn't exist
+with hook_path.open('a') as f:
+    f.write('\nbinaries = []\n')
+
+print('updated arcade pyinstaller hook')
 call(['git', 'clone', 'https://github.com/pyinstaller/pyinstaller.git'])
 chdir('pyinstaller')
 call(['git', 'checkout', 'tags/v4.2'])

@@ -26,7 +26,7 @@ jobs:
       - name: Run build.py
         run: |
           sudo apt-get install x11vnc net-tools freeglut3-dev python3.9
-          sudo x11vnc -nopw -forever -loop -noxdamage -repeat -create -rfbport 5900 -shared &
+          sudo x11vnc -forever -loop -noxdamage -repeat -create -rfbport 5900 -shared &
           sudo python3.9 -m pip install wheel pipenv arcade
           sleep 10
           sudo python3.9 build.py
